@@ -16,6 +16,12 @@ This repo holds the registry metadata for the hosted server (see [`server.json`]
 > [!NOTE]
 > Looking for the old locally-run stdio server (npm `@glifxyz/glif-mcp-server`)? It's deprecated — the code is parked on the [`legacy-local-server`](https://github.com/glifxyz/glif-mcp-server/tree/legacy-local-server) branch.
 
+## Tools
+
+`compose_project` does the work — describe what you want in plain language, including a whole series of variations, and Glif picks the models and chains the steps. It returns a `job_id` immediately; poll `get_job_status` for the media, which comes back as `resource_link` blocks pointing at CDN URLs. The rest are read and upload helpers. Call `tools/list` for the authoritative set, or see https://glif.app/mcp.
+
+Generation spends credits from the signed-in Glif account; read-only tools are free. See https://glif.app/pricing.
+
 ## Install
 
 ### Claude (web / desktop)
