@@ -18,18 +18,7 @@ This repo holds the registry metadata for the hosted server (see [`server.json`]
 
 ## Tools
 
-| Tool                                  | What it does                                                                                                                                                           |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `compose_project`                     | Create or continue a Glif project from a plain-language prompt. Glif picks the models and chains the steps itself. Returns a `job_id` immediately while the work runs. |
-| `get_job_status`                      | Poll a `compose_project` job; the completed poll carries the generated media.                                                                                          |
-| `get_project`                         | Project state, active job, recent messages, and assets.                                                                                                                |
-| `view_media`                          | Re-render already-generated media in the media viewer.                                                                                                                 |
-| `list_projects`                       | Recent projects owned by the caller.                                                                                                                                   |
-| `upload_file`                         | Upload an image, video, or audio file (URL or base64) for use as an input.                                                                                             |
-| `list_user_skills` / `get_user_skill` | The caller's own saved skills.                                                                                                                                         |
-| `whoami`                              | The signed-in account and its remaining credits.                                                                                                                       |
-
-Generated media comes back as `resource_link` blocks pointing at CDN URLs. Most work is one `compose_project` call — describe the whole thing, including a series of variations, in a single prompt rather than looping.
+`compose_project` does the work — describe what you want in plain language, including a whole series of variations, and Glif picks the models and chains the steps. It returns a `job_id` immediately; poll `get_job_status` for the media, which comes back as `resource_link` blocks pointing at CDN URLs. The rest are read and upload helpers. Call `tools/list` for the authoritative set, or see https://glif.app/mcp.
 
 Generation spends credits from the signed-in Glif account; read-only tools are free. See https://glif.app/pricing.
 
